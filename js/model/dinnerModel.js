@@ -421,5 +421,4 @@ var DinnerModel = function() {
 
 	var numberOfGuests = 0;
 
-	var menu = [];
 }

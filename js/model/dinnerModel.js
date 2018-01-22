@@ -418,6 +418,5 @@ var DinnerModel = function() {
 	];
 
 	var numberOfGuests = 0;
-
-	var menu = [];
+	var variabelNgasal = "eaea";
 }

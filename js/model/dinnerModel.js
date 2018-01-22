@@ -173,10 +173,6 @@ var DinnerModel = function() {
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-	var wawa =['toast.jpg','toast'];
-	this.tes =wawa[0];
-	this.tes1 =wawa[1];
-	this.dlength =wawa.length;
 
 	var dishes = [{
 		'id':1,

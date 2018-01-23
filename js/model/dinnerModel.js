@@ -166,7 +166,6 @@ var DinnerModel = function() {
 		return -1;
 	}
 
-
 	// the dishes variable contains an array of all the
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
@@ -421,6 +420,5 @@ var DinnerModel = function() {
 
 	var numberOfGuests = 0;
 	var variabelNgasal = "eaea";
-	var chosenDish = [1, 100, 200];
 	var chosenDishes = [1, 100, 200];
 }

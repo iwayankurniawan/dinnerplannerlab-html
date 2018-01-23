@@ -3,7 +3,6 @@ var DishItemView = function (container, model){
     var dishView = model.getFullMenu();
     var tempDish;
 
-
     for (i=0;i<dishView.length;i++){
       tempDish = dishView[i];
       var dishList= dishItem.append($("<div>").attr("id","dish"+i));

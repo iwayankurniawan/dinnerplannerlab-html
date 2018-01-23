@@ -7,64 +7,70 @@
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
   </head>
   <style>div{border:1px solid;}</style>
   <body>
-    <h1 style="flex:0.1">Dinner planner</h1>
-  	<div class="container">
-      <div id="sideBarView">
-        <div>
-          <p>My Dinner</p>
-        </div>
-        <div style="flex:1;display:flex;flex-direction:row;">
-          <p style="flex:0.3">People</p>
-          <button style="flex:0.1"id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-          <span style="flex:0.1"id="numberOfGuests"></span>
-          <button style="flex:0.1"id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-        </div>
-        <div style="flex:1;display:flex;flex-direction:row;">
-          <p style="flex:0.5;text-align:left;">Dish Name</p>
-          <p style="flex:0.5;text-align:right;">cost</p>
-        </div>
-        <div style="flex:1;display:flex;flex-direction:row;">
-          <span id="dishName" style="flex:0.5;text-align:left;"></span>
-          <span id="dishCost" style="flex:0.5;text-align:right;"></span>
-        </div>
-        <div>
-          <button id="confirmDinner" type="button" class="btn btn-primary">Create New Dinner</button>
-        </div>
+    <h1 style="text-align:center;">Dinner planner</h1>
+    <div class="container">
+      <div class="row">
+          <div id="sideBarView" class="col-sm-4">
+            <div>
+              <p>My Dinner</p>
+            </div>
+            <div>
+              <p>People</p>
+              <button id="minusGuest" class="btn btn-secondary">+</button>
+              <span id="numberOfGuests"></span>
+              <button id="plusGuest" class="btn btn-secondary">-</button>
+            </div>
+            <div class="row">
+              <p class="col" style="text-align:left;">Dish Name</p>
+              <p class="col" style="text-align:right">cost</p>
+            </div>
+            <div class="row">
+              <span id="dishName" class="col" style="text-align:left;"></span>
+              <span id="dishCost" class="col" style="text-align:right;"></span>
+            </div>
+            <div style="text-align:center">
+              <button id="confirmDinner" type="button" class="btn btn-primary">Create New Dinner</button>
+            </div>
+          </div>
+          <div id="searchView" class="col-sm-8">
+            <div>
+              <p style="text-align:left">Find a Dish</p>
+            </div>
+            <div style="text-align:left">
+              <input id="searchBox" type="text" placeholder="Enter Key Words">
+              <select>
+                <option value="all">All</option>
+                <option value="mainCourse">Main Course</option>
+                <option value="sideDish">Side Dish</option>
+                <option value="dessert">Dessert</option>
+                <option value="appetizer">Appetizer</option>
+              </select>
+              <button id="searchDish" type="button" class="btn btn-primary">Search</button>
+            </div>
+
+
+            <div id="dishItem" class="row">
+            </div>
+
+
+          </div>
       </div>
-
-      <div id="space">
-
-      </div>
-
-      <div id="searchView">
-        <div>
-          <p style="text-align:left">Find a Dish</p>
-        </div>
-        <div style="text-align:left">
-          <input id="searchBox" type="text" placeholder="Enter Key Words">
-          <select>
-            <option value="all">All</option>
-            <option value="mainCourse">Main Course</option>
-            <option value="sideDish">Side Dish</option>
-            <option value="dessert">Dessert</option>
-            <option value="appetizer">Appetizer</option>
-          </select>
-          <button id="searchDish" type="button" class="btn btn-primary">Search</button>
-        </div>
+    </div>
 
 
-        <div id="dishItem">
-        </div>
 
 
-      </div>
-  	</div>
+
+
+
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>

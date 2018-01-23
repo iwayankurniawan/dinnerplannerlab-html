@@ -156,12 +156,11 @@ var DinnerModel = function() {
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 	  for(key in dishes){
-			if(dishes[key].id == id) {
+			if(dishes[key].id === id) {
 				return dishes[key];
 			}
-
-			return -1;
 		}
+		return -1;
 	}
 
 
@@ -419,4 +418,5 @@ var DinnerModel = function() {
 
 	var numberOfGuests = 0;
 	var variabelNgasal = "eaea";
+	var chosenDish = [1, 100, 200];
 }

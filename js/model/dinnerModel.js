@@ -33,16 +33,15 @@ var DinnerModel = function() {
 		return this.getAllDishes();
 	}
 
+<<<<<<< HEAD
 	this.getSelectedDishSebenarnya = function(){
 		var allSelectedDish = new array();
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
 		//TODO Lab 1
 
 		//get all dishes
-		var allDishes = this.getAllDishes();
 		var allIngridients = new Array();
 		var tempDish;
 		var tempIngredient;
@@ -69,7 +68,6 @@ var DinnerModel = function() {
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
 		var totalPrice = 0;
 		//var totalGuests = numberOfGuests;
@@ -77,7 +75,6 @@ var DinnerModel = function() {
 		var alertShown = false;
 
 		//loop all ingridients
-		var arrIngredients = this.getAllIngredients();
 		for (i in arrIngredients){
 			tempIngredient = arrIngredients[i];
 

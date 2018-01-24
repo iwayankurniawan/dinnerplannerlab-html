@@ -33,23 +33,31 @@ var DinnerModel = function() {
 		return this.getAllDishes();
 	}
 
-<<<<<<< HEAD
-	this.getSelectedDishSebenarnya = function(){
-		var allSelectedDish = new array();
-	}
 
 	//Returns all ingredients for all the dishes on the menu.
+	this.getAllIngredients = function(dishId) {
 		//TODO Lab 1
 
 		//get all dishes
+		var allDishes;
+		var arrDishes = new Array();
+
+		if (dishId) {
+			allDishes = this.getDish(dishId);
+			arrDishes.push(allDishes);
+		}
+		else {
+			arrDishes = this.getAllDishes();
+		}
+
 		var allIngridients = new Array();
 		var tempDish;
 		var tempIngredient;
 		var alertShown = false;
 
 		//loop all dishes
-		for (i in allDishes) {
-			tempDish = allDishes[i];
+		for (i in arrDishes) {
+			tempDish = arrDishes[i];
 
 			for (j in tempDish.ingredients) {
 				tempIngredient = tempDish.ingredients[j];
@@ -68,6 +76,7 @@ var DinnerModel = function() {
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	this.getTotalMenuPrice = function(dishId) {
 		//TODO Lab 1
 		var totalPrice = 0;
 		//var totalGuests = numberOfGuests;
@@ -75,6 +84,16 @@ var DinnerModel = function() {
 		var alertShown = false;
 
 		//loop all ingridients
+		var arrIngredients;
+
+		if (dishId) {
+			arrIngredients = this.getAllIngredients(dishId);
+
+		}
+		else {
+			arrIngredients = this.getAllIngredients();
+		}
+
 		for (i in arrIngredients){
 			tempIngredient = arrIngredients[i];
 
@@ -419,7 +438,7 @@ var DinnerModel = function() {
 		}
 	];
 
-	var numberOfGuests = 0;
+	var numberOfGuests = 3;
 	var variabelNgasal = "eaea";
 	this.chosenDishes = [1, 3, 200];
 }

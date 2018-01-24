@@ -33,6 +33,10 @@ var DinnerModel = function() {
 		return this.getAllDishes();
 	}
 
+	this.getSelectedDishSebenarnya = function(){
+		var allSelectedDish = new array();
+	}
+
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		//TODO Lab 1
@@ -420,5 +424,5 @@ var DinnerModel = function() {
 
 	var numberOfGuests = 0;
 	var variabelNgasal = "eaea";
-	var chosenDishes = [1, 100, 200];
+	this.chosenDishes = [1, 3, 200];
 }

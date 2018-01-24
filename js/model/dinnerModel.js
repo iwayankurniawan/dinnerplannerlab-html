@@ -16,9 +16,6 @@ var DinnerModel = function() {
 		return numberOfGuests;
 	}
 
-	this.getChosenDishes = function() {
-		return chosenDishes;
-	}
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
@@ -85,6 +82,7 @@ var DinnerModel = function() {
 
 		//loop all ingridients
 		var arrIngredients;
+
 
 		if (dishId) {
 			arrIngredients = this.getAllIngredients(dishId);

@@ -7,6 +7,10 @@ $(function() {
 	// var searchView = new SearchView($("#searchView"),model);
 	// var dishItemView = new DishItemView($("#dishItemView"),model);
 	var dishDetailView = new DishDetailView($("#dishDetailView"),model);
+	var summaryView = new SummaryView($("#summaryView"), model);
+
+
+
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.

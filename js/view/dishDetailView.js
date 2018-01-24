@@ -32,7 +32,7 @@ var DishDetailView = function (container, model){
     }
     dishIngredients.html(listIngredients);
 
-    dishTotalPrice.html("TOTAL SEK"+ model.getTotalMenuPrice());
+    dishTotalPrice.html("TOTAL SEK"+ model.getTotalMenuPrice(dishId));
   }
 
 

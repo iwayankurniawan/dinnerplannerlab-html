@@ -16,9 +16,6 @@ var DinnerModel = function() {
 		return numberOfGuests;
 	}
 
-	this.getChosenDishes = function() {
-		return chosenDishes;
-	}
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
@@ -33,7 +30,7 @@ var DinnerModel = function() {
 		return this.getAllDishes();
 	}
 
-	this.getSelectedDishSebenarnya = function() {
+	this.getChosenDishes = function() {
 		var allSelectedDishes = new Array();
 		var currentDish;
 
@@ -52,10 +49,10 @@ var DinnerModel = function() {
 		//TODO Lab 1
 
 		//get all dishes
-		var allDishes;
+		var allDishes = new Array();
 
 		if (dishId) {
-			allDishes = this.getDish(dishId);
+			allDishes.push(this.getDish(dishId));
 		}
 		else {
 			allDishes = this.getAllDishes();
@@ -68,6 +65,7 @@ var DinnerModel = function() {
 
 		//loop all dishes
 		for (i in allDishes) {
+
 			tempDish = allDishes[i];
 
 			for (j in tempDish.ingredients) {
@@ -97,8 +95,10 @@ var DinnerModel = function() {
 		//loop all ingridients
 		var arrIngredients;
 
+
 		if (dishId) {
 			arrIngredients = this.getAllIngredients(dishId);
+
 		}
 		else {
 			arrIngredients = this.getAllIngredients();

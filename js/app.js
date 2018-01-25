@@ -6,8 +6,8 @@ $(function() {
 	var sideBarView = new SideBarView($("#sideBarView"),model);
 	var searchView = new SearchView($("#searchView"),model);
 	var dishItemView = new DishItemView($("#dishItemView"),model);
-	var dishDetailView = new DishDetailView($("#dishDetailView"),model);
-	var summaryView = new SummaryView($("#summaryView"), model);
+	//var dishDetailView = new DishDetailView($("#dishDetailView"),model);
+	//var summaryView = new SummaryView($("#summaryView"), model);
 
 
 

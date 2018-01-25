@@ -4,17 +4,17 @@ var SideBarView = function (container, model) {
   numberOfGuests.html(model.getNumberOfGuests);
 
 
-<<<<<<< HEAD
   var dishAndCost = container.find("#dishAndCost");
   var dishAndCostj;
   var k=0;
   var totalPriceside = 0;
+  var chosenDishes = model.getChosenDishes();
 
-  for(j in model.chosenDishes){
+  for(j in chosenDishes){
 
     dishAndCost.append($("<div>").attr("id","dishAndCost"+j).attr("class","row"));
-    tempDishSelected = model.getDish(model.chosenDishes[j]);
-    tempPriceDishSelected = model.getTotalMenuPrice(model.chosenDishes[j]);
+    tempDishSelected = chosenDishes[j];
+    tempPriceDishSelected = model.getTotalMenuPrice(tempDishSelected.id);
     dishAndCostj = container.find("#dishAndCost"+k);
     dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:left;").html(tempDishSelected.name));
     dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:right;").html(tempPriceDishSelected+" SEK"));
@@ -24,9 +24,5 @@ var SideBarView = function (container, model) {
 
   var totalPriceSelected = $("#totalPriceSideBar");
   totalPriceSelected.attr("style","text-align:right;").html(totalPriceside + " SEK");
-=======
-  var dishCost = container.find("#dishCost");
-  dishCost.html("menu price from model");
->>>>>>> ea6ae4a85bd9f350ede6e8554d65734137b05a3f
 
 }

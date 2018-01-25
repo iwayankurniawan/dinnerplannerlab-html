@@ -15,13 +15,13 @@ var DishDetailView = function (container, model){
   var listIngredients;
   var ingredient;
   var row;
-
   //if found, then display it
   if (dish != -1) {
     //dish info
     dishName.html(dish.name);
     dishImage.src = "images/" + dish.image;
     dishDescription.html(dish.description);
+
 
     //ingredients info
     dishGuestNumber.html("Ingredients for " + numberOfGuests + " people");

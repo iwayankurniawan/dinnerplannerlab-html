@@ -1,27 +1,13 @@
-body{
+h1 {
+  background-color: #D3D3D3;
 }
 
-div{
-
+p {
+  font-weight: bold;
 }
 
-.container{
-}
-
-#sideBarView{
-
-}
-
-#space{
-
-}
-
-#searchView{
-
-}
-
-#dishItem{
-
+#fullRecipeButton{
+  text-align: center;
 }
 
 #dishDetailIngredients div, #summaryRowPrice div {border:0; padding: 2px; margin-left: 10px;}

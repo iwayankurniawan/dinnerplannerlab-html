@@ -20,7 +20,7 @@ var DishItemView = function (container, model){
     var chosenDishes = model.getChosenDishes();
 
     for (j=0;j<chosenDishes.length;j++){
-    tempDishSelected = model.getDish(chosenDishes[j]);
+    tempDishSelected = chosenDishes[j];
     var dishList= dishItemSelected.append($("<div>").attr("id","dishSelected"+j).attr("class","col"));
     $("#dishSelected"+j).append($("<div>").attr("id",j)
                 .append($("<a>").attr("href","#")
@@ -35,7 +35,7 @@ var DishItemView = function (container, model){
     var totalPrice=0;
 
     for (k=0;k<chosenDishes.length;k++){
-      tempPriceDishSelected = model.getTotalMenuPrice(chosenDishes[k]);
+      tempPriceDishSelected = model.getTotalMenuPrice(chosenDishes[k].id);
       priceItemSelected.append($("<div>").attr("id","dishPrice"+j).attr("class","col").html(tempPriceDishSelected + " SEK"));
       totalPrice = totalPrice + tempPriceDishSelected;
     }

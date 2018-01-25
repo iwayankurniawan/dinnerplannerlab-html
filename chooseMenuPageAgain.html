@@ -16,21 +16,23 @@
     <h1 style="text-align:center;">Dinner planner</h1>
     <div class="container">
       <div class="row">
-          <div id="sideBarView" class="col-sm-3 pr-5">
-            <div>
-              <p class="mb-6">My Dinner</p>
-            </div>
-            <div class="row my-5">
-              <p class="mx-2">People</p>
-              <button id="minusGuest" class="btn btn-secondary mx-1">+</button>
-              <div class="" id="numberOfGuests"></div>
-              <button id="plusGuest" class="btn btn-secondary mx-1">-</button>
-            </div>
+        <div id="sideBarView" class="col-sm-3 pr-5">
+          <div>
+            <p class="mb-6">My Dinner</p>
+          </div>
+          <div class="row my-5">
+            <p class="mx-2">People</p>
+            <button id="minusGuest" class="btn btn-secondary mx-1">+</button>
+            <div class="" id="numberOfGuests"></div>
+            <button id="plusGuest" class="btn btn-secondary mx-1">-</button>
+          </div>
             <div class="row">
               <p class="col" style="text-align:left;">Dish Name</p>
               <p class="col" style="text-align:right">cost</p>
             </div>
-            <div class="row">
+            <div id="dishAndCost">
+            </div>
+            <div id="totalPriceSideBar">
             </div>
             <div style="text-align:center">
               <button id="confirmDinner" type="button" class="btn btn-warning my-5">Create New Dinner</button>

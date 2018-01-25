@@ -4,6 +4,7 @@ var SideBarView = function (container, model) {
   numberOfGuests.html(model.getNumberOfGuests);
 
 
+<<<<<<< HEAD
   var dishAndCost = container.find("#dishAndCost");
   var dishAndCostj;
   var k=0;
@@ -23,5 +24,9 @@ var SideBarView = function (container, model) {
 
   var totalPriceSelected = $("#totalPriceSideBar");
   totalPriceSelected.attr("style","text-align:right;").html(totalPriceside + " SEK");
+=======
+  var dishCost = container.find("#dishCost");
+  dishCost.html("menu price from model");
+>>>>>>> ea6ae4a85bd9f350ede6e8554d65734137b05a3f
 
 }

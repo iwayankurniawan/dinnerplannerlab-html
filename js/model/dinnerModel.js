@@ -24,12 +24,25 @@ var DinnerModel = function() {
 		//pasti ini buat filter out kaaan
 	}
 
+	this.getChosenDishes = function() {
+		var allSelectedDishes = new Array();
+		var currentDish;
+
+		for (i in chosenDishes) {
+			currentDish = this.getDish(chosenDishes[i]);
+			if (currentDish != -1) {
+				allSelectedDishes.push(currentDish);
+			}
+		}
+
+	return allSelectedDishes;
+		}
+
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 1
 		return this.getAllDishes();
 	}
-
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function(dishId) {
@@ -437,6 +450,5 @@ var DinnerModel = function() {
 	];
 
 	var numberOfGuests = 3;
-	var variabelNgasal = "eaea";
-	this.chosenDishes = [1, 3, 200];
+	var chosenDishes = [1, 3, 200];
 }

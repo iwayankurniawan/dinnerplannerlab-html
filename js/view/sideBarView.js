@@ -8,4 +8,5 @@ var SideBarView = function (container, model) {
 
   var dishCost = container.find("#dishCost");
   dishCost.html("menu price from model");
+
 }

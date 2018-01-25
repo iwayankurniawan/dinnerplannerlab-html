@@ -17,9 +17,10 @@ var DishItemView = function (container, model){
 //Dish View selected in Full Recipe
     var dishItemSelected = $("#dishItemSelected");
     var tempDishSelected;
+    var chosenDishes = model.getChosenDishes();
 
-    for (j=0;j<model.chosenDishes.length;j++){
-    tempDishSelected = model.getDish(model.chosenDishes[j]);
+    for (j=0;j<chosenDishes.length;j++){
+    tempDishSelected = model.getDish(chosenDishes[j]);
     var dishList= dishItemSelected.append($("<div>").attr("id","dishSelected"+j).attr("class","col"));
     $("#dishSelected"+j).append($("<div>").attr("id",j)
                 .append($("<a>").attr("href","#")
@@ -33,8 +34,8 @@ var DishItemView = function (container, model){
     var tempPriceDishSelected;
     var totalPrice=0;
 
-    for (k=0;k<model.chosenDishes.length;k++){
-      tempPriceDishSelected = model.getTotalMenuPrice(model.chosenDishes[k]);
+    for (k=0;k<chosenDishes.length;k++){
+      tempPriceDishSelected = model.getTotalMenuPrice(chosenDishes[k]);
       priceItemSelected.append($("<div>").attr("id","dishPrice"+j).attr("class","col").html(tempPriceDishSelected + " SEK"));
       totalPrice = totalPrice + tempPriceDishSelected;
     }

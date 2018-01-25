@@ -14,6 +14,7 @@ var DishDetailView = function (container, model){
   var dish = model.getDish(dishId);
   var listIngredients;
   var ingredient;
+  var row;
 
   //if found, then display it
   if (dish != -1) {
@@ -28,11 +29,19 @@ var DishDetailView = function (container, model){
     //loop for dish Ingredients
     for (i in dish.ingredients){
       ingredient = dish.ingredients[i];
-      listIngredients += "<li>" + ingredient.name + " SEK" + ingredient.price + "</li>";
-    }
-    dishIngredients.html(listIngredients);
+      //listIngredients += "<li>" + ingredient.name + " SEK" + ingredient.price + "</li>";
 
-    dishTotalPrice.html("TOTAL SEK"+ model.getTotalMenuPrice(dishId));
+      dishIngredients.append($("<div>").attr("class", "row").attr("id", "summaryRow" + i));
+      row = container.find("#summaryRow"+i);
+
+      row.append($("<div>").attr("class", "col-2").append(ingredient.quantity + " " + ingredient.unit));
+      row.append($("<div>").attr("class", "col-5").append(ingredient.name));
+      row.append($("<div>").attr("class", "col-1").append("SEK"));
+      row.append($("<div>").attr("class", "col-2").append(ingredient.price));
+    }
+    //dishIngredients.html(listIngredients);
+
+    dishTotalPrice.html(model.getTotalMenuPrice(dishId));
   }
 
 

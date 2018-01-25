@@ -23,3 +23,16 @@ div{
 #dishItem{
 
 }
+
+#dishDetailIngredients div, #summaryRowPrice div {border:0; padding: 2px; margin-left: 10px;}
+#dishDetailIngredients {
+  border-top-width: medium;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-width: medium;
+}
+#dishDetailGuestNumber {font-size: 26px;}
+
+#summaryView div {border:0;}
+#summaryGuestNumber {font-size: 26px;}
+#summaryDishes {border-top-width: medium; }

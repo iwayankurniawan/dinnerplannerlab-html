@@ -16,9 +16,16 @@ p {
   border-left: 0;
   border-right: 0;
   border-bottom-width: medium;
+  visibility: hidden;
 }
 #dishDetailGuestNumber {font-size: 26px;}
 
 #summaryView div {border:0;}
 #summaryGuestNumber {font-size: 26px;}
 #summaryDishes {border-top-width: medium; }
+
+
+@media  (max-width: 500px) {
+  #dishDetailIngredients {visibility:visible;
+  }
+ }

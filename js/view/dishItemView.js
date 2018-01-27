@@ -1,5 +1,6 @@
 var DishItemView = function (container, model){
     var dishItem = $("#dishItem");
+    //var dishItem = container.find("#dishItem");
     var dishView = model.getFullMenu();
     var tempDish;
 

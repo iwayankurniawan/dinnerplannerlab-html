@@ -1,5 +1,7 @@
 var DishItemView = function (container, model){
-    var dishItem = $("#dishItem");
+    //var dishItem = $("#dishItemView");
+    var dishItem = container.find("#sesuatuYangIndah");
+    //alert(container.length);
     var dishView = model.getFullMenu();
     var tempDish;
 
@@ -12,7 +14,7 @@ var DishItemView = function (container, model){
                       .append($("<img>").attr("class","img-responsive").attr("src","images/"+tempDish.image))));
           $("#dish"+i).append($("<div>")
                     .append($("<p>").html(tempDish.name)));
-    }
+     }
 
 //Dish View selected in Full Recipe
     var dishItemSelected = $("#dishItemSelected");

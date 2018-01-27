@@ -10,8 +10,9 @@ var DishDetailView = function (container, model){
   var dishIngredients = container.find("#dishDetailIngredients");
   var dishTotalPrice = container.find("#dishDetailTotalPrice");
 
-  var dishId = 100;
-  var dish = model.getDish(dishId);
+  //var dishId = 1;
+
+  var dish = model.getDish(model.getDefaultDishId());
   var listIngredients;
   var ingredient;
   var row;

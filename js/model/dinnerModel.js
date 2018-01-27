@@ -449,6 +449,6 @@ var DinnerModel = function() {
 		}
 	];
 
-	var numberOfGuests = 3;
+	var numberOfGuests = 5;
 	var chosenDishes = [1, 3, 200];
 }

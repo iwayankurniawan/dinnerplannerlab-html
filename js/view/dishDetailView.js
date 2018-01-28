@@ -42,7 +42,7 @@ var DishDetailView = function (container, model){
     }
     //dishIngredients.html(listIngredients);
 
-    dishTotalPrice.html(model.getTotalMenuPrice(dishId));
+    dishTotalPrice.html(model.getTotalMenuPrice(model.getDefaultDishId()));
   }
 
 

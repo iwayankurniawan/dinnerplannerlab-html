@@ -1,12 +1,8 @@
 var DishItemView = function (container, model){
-<<<<<<< HEAD
-    var dishItem = $("#dishItem");
-    //var dishItem = container.find("#dishItem");
-=======
-    //var dishItem = $("#dishItemView");
-    var dishItem = container.find("#sesuatuYangIndah");
-    //alert(container.length);
->>>>>>> 29f8ce9980de940a0ec29a2d8b4b3a2efcf7b758
+
+
+    var dishItem = container.find("#dishItemView");
+
     var dishView = model.getFullMenu();
     var tempDish;
 
@@ -14,10 +10,10 @@ var DishItemView = function (container, model){
     for (i=0;i<dishView.length;i++){
         tempDish = dishView[i];
         var dishList= dishItem.append($("<div>").attr("id","dish"+i).attr("class","col"));
-        $("#dish"+i).append($("<div>").attr("id",i)
+        container.find("#dish"+i).append($("<div>").attr("id",i)
                     .append($("<a>").attr("href","#")
                       .append($("<img>").attr("class","img-responsive").attr("src","images/"+tempDish.image))));
-          $("#dish"+i).append($("<div>")
+          container.find("#dish"+i).append($("<div>")
                     .append($("<p>").html(tempDish.name)));
      }
 

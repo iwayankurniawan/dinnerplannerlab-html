@@ -6,6 +6,9 @@ p {
   font-weight: bold;
 }
 
+#sideBarView{
+  border-style: solid;
+}
 #fullRecipeButton{
   text-align: center;
 }
@@ -16,7 +19,6 @@ p {
   border-left: 0;
   border-right: 0;
   border-bottom-width: medium;
-  visibility: hidden;
 }
 #dishDetailGuestNumber {font-size: 26px;}
 
@@ -26,6 +28,23 @@ p {
 
 
 @media  (max-width: 500px) {
-  #dishDetailIngredients {visibility:visible;
+  #dishDetailIngredients {
+    visibility:visible;
   }
  }
+
+@media  (min-width: 569px){
+  #mobileSideBar{
+    display: none;
+  }
+}
+
+@media  (max-width: 569px) {
+   #desktopSideBar {
+     display: none;
+   }
+  }
+
+.collapse.in {
+      display: block;
+}

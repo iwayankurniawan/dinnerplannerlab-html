@@ -1,16 +1,45 @@
 var DinnerModel = function() {
 
 
-	var numberOfGuests = 3;
+	var numberOfGuests = 1 ;
+	var dishType;
+	var dishFilter;
 	var chosenDishes = [1, 3, 200];
 	var defaultDish = 100;
+	var observers = [];
+
+	var notifyObservers = function(obj) {
+		$.each(observers, function(index, observer){
+			observer.update(obj);
+		});
+	}
+
+	this.addObserver = function(observer) {
+		observers.push(observer);
+	}
+
+
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
+	this.setFilterType = function(type,filter){
+		dishType=type;
+		dishFilter=filter;
+		notifyObservers("search");
+	}
+
+	this.getFilterType = function() {
+		return dishType;
+	}
+
+	this.getFilter = function() {
+		return dishFilter;
+	}
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
 		numberOfGuests = num;
+		notifyObservers("nrGuests");
 	}
 
 	this.getNumberOfGuests = function() {
@@ -22,7 +51,6 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
 		return this.getAllDishes(type);
-
 		//pasti ini buat filter out kaaan
 	}
 
@@ -124,6 +152,7 @@ var DinnerModel = function() {
 		}
 
 		return totalPrice;
+		notifyObservers("totalPrice");
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -133,18 +162,20 @@ var DinnerModel = function() {
 
 		//if found, delete the first one
 		//if (this.getDish(id) != -1) {
-		this.removeDishFromMenu(id);
+		// this.removeDishFromMenu(id);
 		//}
 
 		//declare ingredients of this new Dish. properties: name, quantity, unit, price
-		var newIngredient = new Array("eggs", 1, '', 8);
+		// var newIngredient = new Array("eggs", 1, '', 8);
 
 		//declare new Dish. Properties: id, name, type, image, description, ingredient
-		var newDish = new Array(id, "Sushi", "main dish", "toast.jpg", "sushi from japan", newIngredient);
+		// var newDish = new Array(id, "Sushi", "main dish", "toast.jpg", "sushi from japan", newIngredient);
 
-		dishes.push(newDish);
-		return this.getFullMenu();
+		// dishes.push(newDish);
+		// return this.getFullMenu();
 
+		chosenDishes.push(id);
+		alert(chosenDishes.length);
 	}
 
 	//Removes dish from menu
@@ -454,8 +485,6 @@ var DinnerModel = function() {
 		}]
 	}
 ];
-
-
 
 
 }

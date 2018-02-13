@@ -4,10 +4,20 @@ $(function() {
 
 	// And create the instance of ExampleView
 	var sideBarView = new SideBarView($("#sideBarView"),model);
+	var sideBarController = new SideBarController(sideBarView,model);
+
 	var searchView = new SearchView($("#searchView"),model);
+	var searchViewController = new SearchViewController(searchView,model);
+
 	var dishItemView = new DishItemView($("#dishItemView"),model);
+	var dishItemViewController = new DishItemViewController(dishItemView,model);
+
 	var dishDetailView = new DishDetailView($("#dishDetailView"),model);
 	var summaryView = new SummaryView($("#summaryView"), model);
+
+
+
+
 
 
 
@@ -17,5 +27,7 @@ $(function() {
 	 * In other places you should limit the search only to the children
 	 * of the specific view you're working with (see exampleView.js).
 	 */
+
+
 
 });

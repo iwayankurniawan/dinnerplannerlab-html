@@ -58,12 +58,11 @@
             </div>
             <div class="my-4"style="text-align:left">
               <input class="mr-4" id="searchBox" type="text" placeholder="Enter Key Words">
-              <select class="mx-4">
-                <option value="all">All</option>
-                <option value="mainCourse">Main Course</option>
-                <option value="sideDish">Side Dish</option>
+              <select class="mx-4" id="typeOption">
+                <option value="">All</option>
+                <option value="starter">Starter</option>
+                <option value="main dish">Main Dish</option>
                 <option value="dessert">Dessert</option>
-                <option value="appetizer">Appetizer</option>
               </select>
               <button id="searchDish" type="button" class="btn btn-warning ml-4">Search</button>
             </div>
@@ -91,6 +90,12 @@
   <script src="js/view/searchView.js"></script>
    <script src="js/view/dishItemView.js"></script>
    <script src="js/view/dishDetailView.js"></script>
+
+   <!--controller -->
+   <script src="js/controller/sideBarController.js"></script>
+   <script src="js/controller/searchViewController.js"></script>
+   <script src="js/controller/dishItemViewController.js"></script>
+
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>

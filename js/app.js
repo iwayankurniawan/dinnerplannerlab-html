@@ -13,8 +13,13 @@ $(function() {
 
 	// And create the instance of ExampleView
 	var sideBarView = new SideBarView(sbView,model);
+	var sideBarController = new SideBarController(sideBarView,model);
+
 	var searchView = new SearchView(seaView,model);
+	var searchViewController = new SearchViewController(searchView,model);
+
 	var dishItemView = new DishItemView(diView,model);
+	var dishItemViewController = new DishItemViewController(dishItemView,model);
 
 	var dishDetailView = new DishDetailView(ddView,model);
 	var dishDetailViewController = new DishDetailViewController(dishDetailView, model, generalController);
@@ -31,13 +36,13 @@ $(function() {
 	generalController.initiateViews();
 	generalController.showActiveView("welcome");
 
-
-
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
 	 * In other places you should limit the search only to the children
 	 * of the specific view you're working with (see exampleView.js).
 	 */
+
+
 
 });

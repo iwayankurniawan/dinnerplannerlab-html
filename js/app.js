@@ -1,13 +1,35 @@
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
+	var generalController = new GeneralController();
+
+	var sbView = $("#sideBarView");
+	var seaView = $("#searchView");
+	var diView = $("#dishItemView");
+	var ddView = $("#dishDetailView");
+	var sumView = $("#summaryView");
+	var oView = $("#overviewView");
+	var wView = $("#welcomeView");
 
 	// And create the instance of ExampleView
-	var sideBarView = new SideBarView($("#sideBarView"),model);
-	var searchView = new SearchView($("#searchView"),model);
-	var dishItemView = new DishItemView($("#dishItemView"),model);
-	var dishDetailView = new DishDetailView($("#dishDetailView"),model);
-	var summaryView = new SummaryView($("#summaryView"), model);
+	var sideBarView = new SideBarView(sbView,model);
+	var searchView = new SearchView(seaView,model);
+	var dishItemView = new DishItemView(diView,model);
+
+	var dishDetailView = new DishDetailView(ddView,model);
+	var dishDetailViewController = new DishDetailViewController(dishDetailView, model, generalController);
+
+	var summaryView = new SummaryView(sumView, model);
+	var summaryViewController = new SummaryViewController(summaryView, model, generalController);
+
+	var overviewView = new OverviewView(oView, model);
+	var overviewViewController = new OverviewViewController(overviewView, model, generalController);
+
+	var welcomeView = new WelcomeView(wView, model);
+	var welcomeViewController = new WelcomeViewController(welcomeView, model, generalController);
+
+	generalController.initiateViews();
+	generalController.showActiveView("welcome");
 
 
 

@@ -1,5 +1,5 @@
 var DishDetailView = function (container, model){
-
+  model.addObserver(this);
   this.btnBack = container.find("#dishDetailButtonBack");
   model.setNumberOfGuests(3);
   var numberOfGuests = model.getNumberOfGuests();
@@ -47,9 +47,9 @@ var DishDetailView = function (container, model){
   }
 
 
-  // var dishName = container.find("#dishName");
-  // dishName.html("menu name from model");
-  //
-  // var dishCost = container.find("#dishCost");
-  // dishCost.html("menu price from model");
+  //update from event
+  this.update = function(obj) {
+
+
+  }
 }

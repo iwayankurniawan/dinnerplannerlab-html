@@ -1,6 +1,6 @@
 var DishDetailView = function (container, model){
 
-  model.addObserver(this);
+  // model.addObserver(this);
   this.btnBack = container.find("#dishDetailButtonBack");
   model.setNumberOfGuests(3);
   var numberOfGuests = model.getNumberOfGuests();
@@ -11,7 +11,7 @@ var DishDetailView = function (container, model){
   var dishGuestNumber = container.find("#dishDetailGuestNumber");
   var dishIngredients = container.find("#dishDetailIngredients");
   var dishTotalPrice = container.find("#dishDetailTotalPrice");
-
+  model.addObserver(this);
   //var dishId = 1;
 
   var dish = model.getDish(model.getDefaultDishId());

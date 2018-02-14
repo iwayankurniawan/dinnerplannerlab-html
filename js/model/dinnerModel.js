@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	var dishType;
 	var dishFilter;
 	var chosenDishes = [1, 3, 200];
-	var defaultDish = 0;
+	var defaultDish = 100;
 	var observers = [];
 
 	var notifyObservers = function(obj) {

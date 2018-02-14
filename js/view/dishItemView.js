@@ -12,8 +12,6 @@ var DishItemView = function (container, model){
     // var dishView = model.getAllDishes();
     var tempDish;
 
-
-
     //Dish View in Choose Menu Page HTML
 
     for (i=0;i<dishView.length;i++){

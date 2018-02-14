@@ -1,10 +1,8 @@
 var DishDetailView = function (container, model){
-<<<<<<< HEAD
-  model.addObserver(this);
-=======
 
   this.btnBack = container.find("#dishDetailButtonBack");
->>>>>>> c9be321f7cae2fa01de3843ea4ab131ee84e13f3
+  this.btnAdd = container.find("#dishDetailButtonAdd");
+
   model.setNumberOfGuests(3);
   var numberOfGuests = model.getNumberOfGuests();
 
@@ -15,45 +13,80 @@ var DishDetailView = function (container, model){
   var dishIngredients = container.find("#dishDetailIngredients");
   var dishTotalPrice = container.find("#dishDetailTotalPrice");
 
+  model.addObserver(this);
   //var dishId = 1;
 
-  var dish = model.getDish(model.getDefaultDishId());
-  var listIngredients;
+  var dishId = model.getDefaultDishId();
+  var dish = model.getDish(dishId);
+  //var listIngredients;
   var ingredient;
   var row;
-  //if found, then display it
-  if (dish != -1) {
-    //dish info
-    dishName.html(dish.name);
-    dishImage.src = "images/" + dish.image;
-    dishDescription.html(dish.description);
+  var dishIngredientCount = 0;
 
+  var loadDish = function(){
+      //alert("dish has been loaded with " + dishId );
+      dishId = model.getDefaultDishId();
+      dish = model.getDish(dishId);
 
-    //ingredients info
-    dishGuestNumber.html("Ingredients for " + numberOfGuests + " people");
+      //if found, then display it
+      if (dish != -1) {
+        //dish info
+        dishName.html(dish.name);
+        dishImage.src = "images/" + dish.image;
+        dishDescription.html(dish.description);
 
-    //loop for dish Ingredients
-    for (i in dish.ingredients){
-      ingredient = dish.ingredients[i];
-      //listIngredients += "<li>" + ingredient.name + " SEK" + ingredient.price + "</li>";
+        dishIngredientCount = dish.ingredients.length;
 
-      dishIngredients.append($("<div>").attr("class", "row").attr("id", "summaryRow" + i));
-      row = container.find("#summaryRow"+i);
+        //ingredients info
+        dishGuestNumber.html("Ingredients for " + numberOfGuests + " people");
 
-      row.append($("<div>").attr("class", "col-2").append(ingredient.quantity + " " + ingredient.unit));
-      row.append($("<div>").attr("class", "col-5").append(ingredient.name));
-      row.append($("<div>").attr("class", "col-1").append("SEK"));
-      row.append($("<div>").attr("class", "col-2").append(ingredient.price));
-    }
-    //dishIngredients.html(listIngredients);
+        //loop for dish Ingredients
+        for (i in dish.ingredients){
+          ingredient = dish.ingredients[i];
+          //listIngredients += "<li>" + ingredient.name + " SEK" + ingredient.price + "</li>";
 
-    dishTotalPrice.html(model.getTotalMenuPrice(model.getDefaultDishId()));
+          dishIngredients.append($("<div>").attr("class", "row").attr("id", "summaryRow" + i));
+          row = container.find("#summaryRow"+i);
+
+          row.append($("<div>").attr("class", "col-2").append(ingredient.quantity + " " + ingredient.unit));
+          row.append($("<div>").attr("class", "col-5").append(ingredient.name));
+          row.append($("<div>").attr("class", "col-1").append("SEK"));
+          row.append($("<div>").attr("class", "col-2").append(ingredient.price));
+        }
+        //dishIngredients.html(listIngredients);
+
+        dishTotalPrice.html(model.getTotalMenuPrice(dishId));
+
+        //alert("pertama " + dishId);
+      }
+
   }
 
 
+
+  //initial load
+  loadDish();
+
+  var removeSummaryRow = function(){
+    //alert("jumlah nye " + dishIngredientCount);
+    for (i in dish.ingredients){
+      row = container.find("#summaryRow"+i);
+      row.remove();
+    }
+  }
+
   //update from event
   this.update = function(obj) {
+    switch (obj) {
+      case "detailDish":
+        //remove ingredients (because it use append)
+        removeSummaryRow();
+        loadDish();
+        break;
+      default:
 
-
+    }
+    //alert("lewat bos, id nya segene neh " + model.getDefaultDishId());
+    //loadDish();
   }
 }

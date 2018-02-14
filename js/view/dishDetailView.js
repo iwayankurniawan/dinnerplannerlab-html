@@ -51,6 +51,5 @@ var DishDetailView = function (container, model){
   //update from event
   this.update = function(obj) {
 
-
   }
 }

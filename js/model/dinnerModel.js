@@ -4,7 +4,11 @@ var DinnerModel = function() {
 	var numberOfGuests = 1;
 	var dishType;
 	var dishFilter;
+<<<<<<< HEAD
 	var chosenDishes = [1, 3, 200];
+=======
+	var chosenDishes = [];
+>>>>>>> 0ab3f0f64360ce3bee60ded700e7975e971c1351
 	var defaultDish = 100;
 	var observers = [];
 
@@ -51,7 +55,6 @@ var DinnerModel = function() {
 	this.setCurrentDish = function(dishId) {
 		//TODO Lab 1
 		defaultDish = dishId;
-		alert("dish id sekarang " + dishId);
 		notifyObservers("detailDish");
 	}
 
@@ -77,6 +80,7 @@ var DinnerModel = function() {
 	}
 
 	this.getDefaultDishId = function() {
+
 		return defaultDish;
 	}
 
@@ -183,6 +187,7 @@ var DinnerModel = function() {
 		// return this.getFullMenu();
 
 		chosenDishes.push(id);
+		notifyObservers("tester");
 		//alert(chosenDishes.length);
 	}
 
@@ -235,11 +240,12 @@ var DinnerModel = function() {
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 		for(key in dishes){
-			if(dishes[key].id === id) {
+			if(dishes[key].id == id) {
 				return dishes[key];
 			}
 		}
 		return -1;
+
 	}
 
 	// the dishes variable contains an array of all the

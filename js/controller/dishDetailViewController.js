@@ -5,4 +5,9 @@ var DishDetailViewController = function(view, model, gc) {
     gc.showActiveView("search");
 
   });
+
+  view.btnAdd.click(function(){
+    model.addDishToMenu(model.getDefaultDishId());
+    gc.showActiveView("search");
+  });
 }

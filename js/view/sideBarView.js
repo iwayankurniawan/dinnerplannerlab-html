@@ -100,7 +100,30 @@ this.update = function(obj) {
       var totalPriceSelected = container.find("#totalPriceSideBar1");
       totalPriceSelected.html(totalPriceside2 + " SEK");
       break;
+    case "tester":
 
+    var dishAndCost = container.find("#dishAndCostj");
+    var dishAndCostj;
+    var k=0;
+    var totalPriceside = 0;
+    var chosenDishes = model.getChosenDishes();
+
+    for(j in chosenDishes){
+
+      dishAndCost.append($("<div>").attr("id","dishAndCostj"+j).attr("class","row").attr("style","width:100%;"));
+      tempDishSelected = chosenDishes[j];
+      tempPriceDishSelected = model.getTotalMenuPrice(tempDishSelected.id);
+      dishAndCostj = container.find("#dishAndCostj"+k);
+      dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:left;").html(tempDishSelected.name));
+      dishAndCostj.append($("<div>").attr("id","cost"+k).attr("class","col").attr("style","text-align:right;").html(tempPriceDishSelected+" SEK"));
+      k=k+1;
+      totalPriceside=totalPriceside+tempPriceDishSelected;
+    }
+
+    var totalPriceSelected = container.find("#totalPriceSideBar1");
+    totalPriceSelected.attr("style","text-align:right;").html(totalPriceside + " SEK");
+
+      break;
     default:
   }
 }

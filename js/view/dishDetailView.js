@@ -1,6 +1,10 @@
 var DishDetailView = function (container, model){
+<<<<<<< HEAD
   model.addObserver(this);
+=======
+
   this.btnBack = container.find("#dishDetailButtonBack");
+>>>>>>> c9be321f7cae2fa01de3843ea4ab131ee84e13f3
   model.setNumberOfGuests(3);
   var numberOfGuests = model.getNumberOfGuests();
 

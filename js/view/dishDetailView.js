@@ -1,5 +1,5 @@
 var DishDetailView = function (container, model){
-
+  model.addObserver(this);
   model.setNumberOfGuests(3);
   var numberOfGuests = model.getNumberOfGuests();
 

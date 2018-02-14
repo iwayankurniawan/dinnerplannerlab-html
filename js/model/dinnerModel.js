@@ -36,6 +36,7 @@ var DinnerModel = function() {
 		return dishFilter;
 	}
 
+
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
 		numberOfGuests = num;

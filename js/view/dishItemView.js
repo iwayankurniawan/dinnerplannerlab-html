@@ -56,9 +56,6 @@ var DishItemView = function (container, model){
       totalPrice = totalPrice + tempPriceDishSelected;
     }
 
-//Total Price in Full Recipe
-    var totalPriceSelected = $("#totalPriceSelected");
-    totalPriceSelected.html("Total "+"<br>"+totalPrice + " SEK");
 
 //Show Number of Guest in Full Recipe
     var myDinnerNumberofGuest = $("#myDinner");

@@ -16,9 +16,6 @@ var SideBarView = function (container, model) {
   var numberOfGuests = container.find("#numberOfGuests");
   numberOfGuests.html(model.getNumberOfGuests);
 
-  var dishAndCostLabel =container.find("#dishAndCostLabel");
-  dishAndCostLabel.append($("<p>").attr("class","col").attr("style","text-align:left;").html("Dish Name"));
-  dishAndCostLabel.append($("<p>").attr("class","col").attr("style","text-align:right;").html("Cost"));
 
   var dishAndCost = container.find("#dishAndCost");
   var dishAndCostj;
@@ -27,7 +24,8 @@ var SideBarView = function (container, model) {
   var chosenDishes = model.getChosenDishes();
 
   for(j in chosenDishes){
-    dishAndCost.append($("<div>").attr("id","dishAndCost"+j).attr("class","row").attr("style","width:100%"));
+
+    dishAndCost.append($("<div>").attr("id","dishAndCost"+j).attr("class","row"));
     tempDishSelected = chosenDishes[j];
     tempPriceDishSelected = model.getTotalMenuPrice(tempDishSelected.id);
     dishAndCostj = container.find("#dishAndCost"+k);

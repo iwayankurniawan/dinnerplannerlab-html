@@ -1,8 +1,9 @@
 var SummaryView = function (container, model){
-
+  this.btnBack = container.find("#summaryButtonBack");
   var summaryDishes = container.find("#summaryDishes");
   var summaryGuestNumber = container.find("#summaryGuestNumber");
   var chosenDishes = model.getChosenDishes();
+
 
   var tempDish;
   var row;

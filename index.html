@@ -12,10 +12,11 @@
 
 </head>
 <body>
-  <h1 style="flex:0.1">Dinner planner</h1>
+  <h1 style="text-align:center;">Dinner planner</h1>
   <div class="container">
 
-    <div id="welcomeView" style="flex:0.9;display:flex;flex-direction:row;">
+    <div id="welcomeView"  >
+
       <div style="flex:0.25">
       </div>
       <div style="flex:0.5;display:flex;flex-direction:column;">
@@ -25,61 +26,73 @@
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </div>
         <div style="flex:0.5">
-          <button type="button" class="btn btn-warning" id="btnWelcome">Create New Dinner</button>
+            <button type="button" class="btn btn-warning" id="btnWelcome">Create New Dinner</button>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-2">
-        <div id="sideBarView">
-          <div>
-            <p>My Dinner</p>
+      <div class="col-3">
+        <div id="sideBarView" class="">
+          <div id="mobileSideBar" class="row" style="background-color:grey;">
+            <p class="col">My Dinner</p>
+            <div id="totalPriceSideBar" class="col">
+              </div>
+            <button class="btn btn-primary col" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">klik</button>
+            <div class="collapse" id="collapseExample" >
+              <div class="card card-body">
+                    <div id="numberOfGuestsButton" class="row">
+                    </div>
+                    <div id="dishAndCostLabel" class="row">
+                    </div>
+                    <div id="dishAndCost" class="row">
+                      </div>
+                    <!-- <div id="totalPriceSideBar" class="row">
+                      </div> -->
+                    <div style="text-align:center">
+                        <button id="confirmDinner" type="button" class="btn btn-warning my-5">Create New Dinner</button>
+                    </div>
+              </div>
+            </div>
           </div>
-          <div style="flex:1;display:flex;flex-direction:row;">
-            <p style="flex:0.3">People</p>
-            <button style="flex:0.1"id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-            <span style="flex:0.1"id="numberOfGuests"></span>
-            <button style="flex:0.1"id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:row;">
-            <p style="flex:0.5;text-align:left;">Dish Name</p>
-            <p style="flex:0.5;text-align:right;">cost</p>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:row;">
-            <span id="dishName" style="flex:0.5;text-align:left;"></span>
-            <span id="dishCost" style="flex:0.5;text-align:right;"></span>
-          </div>
-          <div>
-            <button id="confirmDinner" type="button" class="btn btn-primary">Create New Dinner</button>
-          </div>
+          <div id="desktopSideBar">
+              <p class="mb-6">My Dinner</p>
+              <div id="numberOfGuestsButton1" class="row my-5">
+              </div>
+              <div id="dishAndCostLabel1" class="row">
+              </div>
+              <div id="dishAndCostj">
+                </div>
+              <div id="totalPriceSideBar1">
+                </div>
+              <div style="text-align:center">
+                  <button id="confirmDinner" type="button" class="btn btn-warning my-5">Create New Dinner</button>
+              </div>
+            </div>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-9">
         <div id="searchView">
-          <div>
-            <p style="text-align:left">Find a Dish</p>
+            <div>
+              <p style="text-align:left">Find a Dish</p>
+            </div>
+            <div class="my-4"style="text-align:left">
+              <input class="mr-4" id="searchBox" type="text" placeholder="Enter Key Words">
+              <select class="mx-4" id="typeOption">
+                <option value="">All</option>
+                <option value="starter">Starter</option>
+                <option value="main dish">Main Dish</option>
+                <option value="dessert">Dessert</option>
+              </select>
+              <button id="searchDish" type="button" class="btn btn-warning ml-4">Search</button>
+            </div>
+
+
+            <div id="dishItemView" class="row">
+            </div>
+
+
           </div>
-          <div style="text-align:left">
-            <input id="searchBox" type="text" placeholder="Enter Key Words">
-            <select>
-              <option value="all">All</option>
-              <option value="mainCourse">Main Course</option>
-              <option value="sideDish">Side Dish</option>
-              <option value="dessert">Dessert</option>
-              <option value="appetizer">Appetizer</option>
-            </select>
-            <button id="searchDish" type="button" class="btn btn-primary">Search</button>
-          </div>
-
-
-          <div id="dishItemView">
-          </div>
-
-
-
-
-        </div>
 
 
         <div id="dishDetailView">
@@ -109,7 +122,7 @@
 
 
 
-    <div class="container" id="overviewView">
+    <div id="overviewView">
       <div class="row my-5">
         <div id="myDinner" class="col">
         </div>
@@ -144,7 +157,7 @@
         </div>
       </div>
 
-      <div class="" id="summaryDishes">
+      <div id="summaryDishes">
       </div>
 
 
@@ -172,6 +185,9 @@
   <script src="js/controller/dishDetailViewController.js"></script>
   <script src="js/controller/overviewViewController.js"></script>
   <script src="js/controller/summaryViewController.js"></script>
+  <script src="js/controller/sideBarController.js"></script>
+  <script src="js/controller/searchViewController.js"></script>
+  <script src="js/controller/dishItemViewController.js"></script>
   <script src="js/controller/generalController.js"></script>
   <!-- TODO: Here you should include JS code for your other views -->
 </body>

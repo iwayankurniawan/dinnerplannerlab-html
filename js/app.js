@@ -19,7 +19,7 @@ $(function() {
 	var searchViewController = new SearchViewController(searchView,model);
 
 	var dishItemView = new DishItemView(diView,model);
-	var dishItemViewController = new DishItemViewController(dishItemView,model);
+	var dishItemViewController = new DishItemViewController(dishItemView,model, generalController);
 
 	var dishDetailView = new DishDetailView(ddView,model);
 	var dishDetailViewController = new DishDetailViewController(dishDetailView, model, generalController);

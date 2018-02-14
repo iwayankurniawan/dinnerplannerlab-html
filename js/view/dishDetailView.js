@@ -1,5 +1,6 @@
 var DishDetailView = function (container, model){
 
+  model.addObserver(this);
   this.btnBack = container.find("#dishDetailButtonBack");
   this.btnAdd = container.find("#dishDetailButtonAdd");
 

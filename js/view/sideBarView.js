@@ -35,7 +35,7 @@ var SideBarView = function (container, model) {
     totalPriceside=totalPriceside+tempPriceDishSelected;
   }
 
-  var totalPriceSelected = $("#totalPriceSideBar");
+  var totalPriceSelected = container.find("#totalPriceSideBar");
   totalPriceSelected.attr("style","text-align:right;").html(totalPriceside + " SEK");
 }
 
@@ -49,6 +49,7 @@ numberOfGuestsButton.append($("<button>").attr("id","minusGuest1").attr("class",
 
 this.minusGuest1 = container.find("#minusGuest1");
 this.plusGuest1 = container.find("#plusGuest1");
+this.createDinner = container.find("#confirmDinner1");
 
 var numberOfGuests = container.find("#numberOfGuests1");
 numberOfGuests.html(model.getNumberOfGuests);
@@ -107,6 +108,10 @@ this.update = function(obj) {
     var k=0;
     var totalPriceside = 0;
     var chosenDishes = model.getChosenDishes();
+
+    for(l in chosenDishes){
+      container.find("#dishAndCostj"+l).remove();
+    }
 
     for(j in chosenDishes){
 

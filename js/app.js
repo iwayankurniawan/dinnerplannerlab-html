@@ -13,7 +13,7 @@ $(function() {
 
 	// And create the instance of ExampleView
 	var sideBarView = new SideBarView(sbView,model);
-	var sideBarController = new SideBarController(sideBarView,model);
+	var sideBarController = new SideBarController(sideBarView,model,generalController);
 
 	var searchView = new SearchView(seaView,model);
 	var searchViewController = new SearchViewController(searchView,model);

@@ -5,4 +5,10 @@ var OverviewViewController = function(view, model, gc) {
     gc.showActiveView("search");
 
   });
+
+  view.btnNext.click(function(){
+    //alert("masup sini");
+    gc.showActiveView("summary");
+
+  });
 }

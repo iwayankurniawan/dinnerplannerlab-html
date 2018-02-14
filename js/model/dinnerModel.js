@@ -4,11 +4,7 @@ var DinnerModel = function() {
 	var numberOfGuests = 1;
 	var dishType;
 	var dishFilter;
-<<<<<<< HEAD
-	var chosenDishes = [1, 3, 200];
-=======
 	var chosenDishes = [];
->>>>>>> 0ab3f0f64360ce3bee60ded700e7975e971c1351
 	var defaultDish = 100;
 	var observers = [];
 
@@ -60,7 +56,6 @@ var DinnerModel = function() {
 
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
-		//TODO Lab 1
 		return this.getAllDishes(type);
 		//pasti ini buat filter out kaaan
 	}
@@ -77,6 +72,7 @@ var DinnerModel = function() {
 		}
 
 		return allSelectedDishes;
+		notifyObservers("chosenDishes");
 	}
 
 	this.getDefaultDishId = function() {
@@ -86,7 +82,6 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 1
 		return this.getAllDishes();
 	}
 
@@ -164,8 +159,10 @@ var DinnerModel = function() {
 		}
 
 		return totalPrice;
-		//notifyObservers("totalPrice");
+		notifyObservers("totalPrice");
 	}
+
+	
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
@@ -188,6 +185,7 @@ var DinnerModel = function() {
 
 		chosenDishes.push(id);
 		notifyObservers("tester");
+		notifyObservers("menuChanged");
 		//alert(chosenDishes.length);
 	}
 

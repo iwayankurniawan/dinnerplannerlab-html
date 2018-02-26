@@ -4,16 +4,11 @@ var DishItemView = function (container, model){
 
     this.dishClick = new Array();
     var dishItem = container;
-    //var dishItem = $("#dishItemView");
-
-    // var dishView = model.getFullMenu();
-
     var dishView = model.getSelectedDish(model.getFilterType());
-    // var dishView = model.getAllDishes();
     var tempDish;
 
+    container.find("#dishLoading").hide();
     //Dish View in Choose Menu Page HTML
-
     for (i=0;i<dishView.length;i++){
         tempDish = dishView[i];
         var dishList= dishItem.append($("<div>").attr("id","dish"+i).attr("class","col-sm-2"));
@@ -26,7 +21,6 @@ var DishItemView = function (container, model){
                     this.dishClick.push(container.find("#" + tempDish.id));
      }
 
-// this.dishClick.push(container.find("#200"));
 
     this.update = function(obj) {
       switch (obj) {
@@ -35,9 +29,8 @@ var DishItemView = function (container, model){
           var removeDish =container.find("#dish"+m);
           removeDish.remove();
         }
-
+        container.find("#dishLoading").show();
         this.dishClick = new Array();
-
         var dishView1 = model.getAllDishes(model.getFilterType(),model.getFilter());
         var tempDish1;
         for (l=0;l<dishView1.length;l++){

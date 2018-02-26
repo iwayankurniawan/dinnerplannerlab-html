@@ -8,6 +8,23 @@ var DinnerModel = function() {
 	var defaultDish = 100;
 	var observers = [];
 
+	//test spoonacular API
+	this.tesAPI = function(callback, errorCallback) {
+		$.ajax({
+			//url:"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search",
+			url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/menuItems/search?query=a",
+			headers: {
+				'X-Mashape-key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+			},
+			success: function(data){
+				callback(data)
+			},
+			error: function(error){
+				errorCallback(error)
+			}
+		});
+	}
+
 	var notifyObservers = function(obj) {
 		$.each(observers, function(index, observer){
 			observer.update(obj);
@@ -162,8 +179,6 @@ var DinnerModel = function() {
 		notifyObservers("totalPrice");
 	}
 
-	
-
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
@@ -233,6 +248,23 @@ var DinnerModel = function() {
 
 
 		});
+	}
+
+	//get dishes from spoonacularAPI
+	this.getAllDishesAPI = function (type,filter, callback, errorCallback) {
+		$.ajax({
+		 //url:"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search",
+		 url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/menuItems/search?query=a",
+		 headers: {
+			 'X-Mashape-key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+		 },
+		 success: function(data){
+			 callback(data)
+		 },
+		 error: function(error){
+			 errorCallback(error)
+		 }
+	 });
 	}
 
 	//function that returns a dish of specific ID

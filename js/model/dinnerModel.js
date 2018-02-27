@@ -194,7 +194,7 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	
+
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -205,6 +205,33 @@ var DinnerModel = function() {
 		}
 		return -1;
 
+	}
+
+	this.getAllDishes = function (type,filter) {
+		return dishes.filter(function(dish) {
+			var found = true;
+			if(filter){
+				found = false;
+				dish.ingredients.forEach(function(ingredient) {
+					if(ingredient.name.indexOf(filter)!=-1) {
+						found = true;
+					}
+				});
+				if(dish.name.indexOf(filter) != -1)
+				{
+					found = true;
+				}
+			}
+
+			if (type) {
+				return dish.type == type && found;
+			}
+			else {
+				return found;
+			}
+
+
+		});
 	}
 
 	this.getAllDishes1 = function (type, filter, callback, errorCallback) {

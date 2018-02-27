@@ -8,22 +8,7 @@ var DinnerModel = function() {
 	var defaultDish = 100;
 	var observers = [];
 
-	//test spoonacular API
-	this.tesAPI = function(callback, errorCallback) {
-		$.ajax({
-			//url:"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search",
-			url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/menuItems/search?query=a",
-			headers: {
-				'X-Mashape-key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
-			},
-			success: function(data){
-				callback(data)
-			},
-			error: function(error){
-				errorCallback(error)
-			}
-		});
-	}
+	var defaultUrl ='https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=10&tags='
 
 	var notifyObservers = function(obj) {
 		$.each(observers, function(index, observer){
@@ -87,7 +72,6 @@ var DinnerModel = function() {
 				allSelectedDishes.push(currentDish);
 			}
 		}
-
 		return allSelectedDishes;
 		notifyObservers("chosenDishes");
 	}
@@ -115,7 +99,7 @@ var DinnerModel = function() {
 			arrDishes.push(allDishes);
 		}
 		else {
-			arrDishes = this.getAllDishes();
+			arrDishes = this.getAllDishes1();
 		}
 
 		var allIngridients = new Array();
@@ -127,8 +111,8 @@ var DinnerModel = function() {
 		for (i in arrDishes) {
 			tempDish = arrDishes[i];
 
-			for (j in tempDish.ingredients) {
-				tempIngredient = tempDish.ingredients[j];
+			for (j in tempDish.extendedIngredients) {
+				tempIngredient = tempDish.extendedIngredients[j];
 
 				//for debugging only
 				// if (!alertShown){
@@ -172,31 +156,19 @@ var DinnerModel = function() {
 			// alertShown = true;
 			// }
 
-			totalPrice += (tempIngredient.price * numberOfGuests);
+			totalPrice += (tempIngredient.amount * numberOfGuests);
 		}
 
 		return totalPrice;
 		notifyObservers("totalPrice");
 	}
 
+
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1
-
-		//if found, delete the first one
-		//if (this.getDish(id) != -1) {
-		// this.removeDishFromMenu(id);
-		//}
-
-		//declare ingredients of this new Dish. properties: name, quantity, unit, price
-		// var newIngredient = new Array("eggs", 1, '', 8);
-
-		//declare new Dish. Properties: id, name, type, image, description, ingredient
-		// var newDish = new Array(id, "Sushi", "main dish", "toast.jpg", "sushi from japan", newIngredient);
-
-		// dishes.push(newDish);
-		// return this.getFullMenu();
 
 		chosenDishes.push(id);
 		notifyObservers("tester");
@@ -216,56 +188,13 @@ var DinnerModel = function() {
 				dishes.splice(i, 1);
 			}
 		}
-		//return this.getFullMenu();
 
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-		return dishes.filter(function(dish) {
-			var found = true;
-			if(filter){
-				found = false;
-				dish.ingredients.forEach(function(ingredient) {
-					if(ingredient.name.indexOf(filter)!=-1) {
-						found = true;
-					}
-				});
-				if(dish.name.indexOf(filter) != -1)
-				{
-					found = true;
-				}
-			}
-
-			if (type) {
-				return dish.type == type && found;
-			}
-			else {
-				return found;
-			}
-
-
-		});
-	}
-
-	//get dishes from spoonacularAPI
-	this.getAllDishesAPI = function (type,filter, callback, errorCallback) {
-		$.ajax({
-		 //url:"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search",
-		 url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/menuItems/search?query=a",
-		 headers: {
-			 'X-Mashape-key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
-		 },
-		 success: function(data){
-			 callback(data)
-		 },
-		 error: function(error){
-			 errorCallback(error)
-		 }
-	 });
-	}
+	
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -278,6 +207,32 @@ var DinnerModel = function() {
 
 	}
 
+	this.getAllDishes1 = function (type, filter, callback, errorCallback) {
+		var typeUrl;
+		if(filter != undefined){
+        typeUrl = defaultUrl + type + "," +filter ;
+        console.log(typeUrl);
+      }else if(type != undefined){
+        typeUrl = defaultUrl + "," + type;
+      }else {
+      	typeUrl=defaultUrl;
+      }
+	 $.ajax( {
+	 url: typeUrl,
+   headers: {
+     'X-Mashape-key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+   },
+
+   success: function(data) {
+		 dishes.push.apply(dishes, data.recipes);
+		 console.log(dishes);
+     callback(data.recipes)
+   },
+   error: function(error) {
+     errorCallback(error)
+   }
+ });
+}
 	// the dishes variable contains an array of all the
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and

@@ -1,3 +1,10 @@
+.container{
+  /* background-color: #000000;
+  padding: 0px;
+  margin:0px;
+  width: 100%; */
+}
+
 h1 {
   background-color: #D3D3D3;
 }
@@ -27,9 +34,13 @@ p {
 #summaryDishes {border-top-width: medium; }
 
 
+
+
 @media  (max-width: 500px) {
   #dishDetailIngredients {
+
     visibility:visible;
+
   }
  }
 
@@ -50,12 +61,16 @@ p {
 }
 
 .loader {
+    text-align: center;
     border: 16px solid #f3f3f3; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
     border-radius: 50%;
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
+    background-color: #0000ff;
+    margin-left: 50%;
+    margin-top: 10%;
 }
 
 @keyframes spin {
@@ -63,9 +78,10 @@ p {
     100% { transform: rotate(360deg); }
 }
 
-.notFound {
-    text-align: center;
-    font-weight: bold;
-    font-size: 20;
-
+.errorText{
+  text-align: center;
+  font-weight:bold;
+  font-size:20px;
+  margin-left: 30%;
+  margin-top: 10%;
 }

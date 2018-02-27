@@ -14,9 +14,9 @@ var OverviewView = function (container, model){
       var dishList= dishItemSelected.append($("<div>").attr("id","dishSelected"+j).attr("class","col"));
       container.find("#dishSelected"+j).append($("<div>").attr("id",j)
       .append($("<a>").attr("href","#")
-      .append($("<img>").attr("class","img-responsive").attr("src","images/"+tempDishSelected.image))));
+      .append($("<img>").attr("class","img-responsive").attr("src",tempDishSelected.image))));
       container.find("#dishSelected"+j).append($("<div>")
-      .append($("<p>").html(tempDishSelected.name)));
+      .append($("<p>").html(tempDishSelected.title)));
     }
 }
   //Dish Price in Full Recipe
@@ -30,7 +30,6 @@ var OverviewView = function (container, model){
       tempPriceDishSelected = model.getTotalMenuPrice(chosenDishes[k].id);
       priceItemSelected.append($("<div style='border:1px solid;'>").attr("id","dishPrice"+k).attr("class","col").html(tempPriceDishSelected + " SEK"));
       totalPrice = (totalPrice + tempPriceDishSelected);
-      //alert("wow wow " + priceItemSelected.children.length);
   }
 
   //Total Price in Full Recipe
@@ -56,7 +55,6 @@ var removePrice = function(){
 
   for (j=0;j<chosenDishes.length;j++){
     var dishPrice = container.find("#dishPrice"+j);
-    //  alert(dishPrice.html());
     dishPrice.remove();
 
   }

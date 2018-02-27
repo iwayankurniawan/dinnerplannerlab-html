@@ -17,9 +17,9 @@ var SummaryView = function (container, model){
       summaryDishes.append($("<div>").attr("class","row").attr("id", "summaryRow"+i));
 
       row = container.find("#summaryRow"+i);
-      row.append($("<div>").attr("class", "col-2").append($("<img>").attr("src", "images/" + tempDish.image)));
-      row.append($("<div>").attr("class", "col-4").append("<h3>"+ tempDish.name+ "</h3>").append(tempDish.description));
-      row.append($("<div>").attr("class", "col-4").append("<h3>Preparation</h3>").append(tempDish.description));
+      row.append($("<div>").attr("class", "col-6").append($("<img>").attr("src", tempDish.image)));
+      row.append($("<div>").attr("class", "col-3").append("<h3>"+ tempDish.title+ "</h3>").append(tempDish.instructions));
+      row.append($("<div>").attr("class", "col-3").append("<h3>Preparation</h3>").append(tempDish.instructions));
     }
   }
 
@@ -32,8 +32,6 @@ var SummaryView = function (container, model){
   }
 
   loadSummary();
-
-
 
 
   //update from event

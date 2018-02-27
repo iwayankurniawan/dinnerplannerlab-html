@@ -29,7 +29,7 @@ var SideBarView = function (container, model) {
     tempDishSelected = chosenDishes[j];
     tempPriceDishSelected = model.getTotalMenuPrice(tempDishSelected.id);
     dishAndCostj = container.find("#dishAndCost"+k);
-    dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:left;").html(tempDishSelected.name));
+    dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:left;").html(tempDishSelected.title));
     dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:right;").html(tempPriceDishSelected+" SEK"));
     k=k+1;
     totalPriceside=totalPriceside+tempPriceDishSelected;
@@ -70,7 +70,7 @@ for(j in chosenDishes){
   tempDishSelected = chosenDishes[j];
   tempPriceDishSelected = model.getTotalMenuPrice(tempDishSelected.id);
   dishAndCostj = container.find("#dishAndCostj"+k);
-  dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:left;").html(tempDishSelected.name));
+  dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:left;").html(tempDishSelected.title));
   dishAndCostj.append($("<div>").attr("id","cost"+k).attr("class","col").attr("style","text-align:right;").html(tempPriceDishSelected+" SEK"));
   k=k+1;
   totalPriceside=totalPriceside+tempPriceDishSelected;
@@ -119,7 +119,7 @@ this.update = function(obj) {
       tempDishSelected = chosenDishes[j];
       tempPriceDishSelected = model.getTotalMenuPrice(tempDishSelected.id);
       dishAndCostj = container.find("#dishAndCostj"+k);
-      dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:left;").html(tempDishSelected.name));
+      dishAndCostj.append($("<div>").attr("class","col").attr("style","text-align:left;").html(tempDishSelected.title));
       dishAndCostj.append($("<div>").attr("id","cost"+k).attr("class","col").attr("style","text-align:right;").html(tempPriceDishSelected+" SEK"));
       k=k+1;
       totalPriceside=totalPriceside+tempPriceDishSelected;

@@ -28,45 +28,37 @@ var DishDetailView = function (container, model){
       //if found, then display it
       if (dish != -1) {
         //dish info
-        dishName.html(dish.name);
-        dishImage.src = "images/" + dish.image;
-        dishDescription.html(dish.description);
+        dishName.html(dish.title);
+        dishImage.src = dish.image;
+        dishDescription.html(dish.instructions);
 
-        dishIngredientCount = dish.ingredients.length;
 
         //ingredients info
         dishGuestNumber.html("Ingredients for " + model.getNumberOfGuests() + " people");
 
         //loop for dish Ingredients
-        for (i in dish.ingredients){
-          ingredient = dish.ingredients[i];
-          //listIngredients += "<li>" + ingredient.name + " SEK" + ingredient.price + "</li>";
+        for (i in dish.extendedIngredients){
+          ingredient = dish.extendedIngredients[i];
 
           dishIngredients.append($("<div>").attr("class", "row").attr("id", "summaryRow" + i));
           row = container.find("#summaryRow"+i);
 
-          row.append($("<div>").attr("class", "col-2").append(ingredient.quantity + " " + ingredient.unit));
-          row.append($("<div>").attr("class", "col-5").append(ingredient.name));
-          row.append($("<div>").attr("class", "col-1").append("SEK"));
-          row.append($("<div>").attr("class", "col-2").append(ingredient.price));
+          row.append($("<div>").attr("class", "col").append(ingredient.amount + " " + ingredient.unit));
+          row.append($("<div>").attr("class", "col").append(ingredient.name));
+          row.append($("<div>").attr("class", "col").append("SEK " + ingredient.amount ));
         }
-        //dishIngredients.html(listIngredients);
-
         dishTotalPrice.html(model.getTotalMenuPrice(dishId));
 
-        //alert("pertama " + dishId);
       }
 
   }
-
 
 
   //initial load
   loadDish();
 
   var removeSummaryRow = function(){
-    //alert("jumlah nye " + dishIngredientCount);
-    for (i in dish.ingredients){
+    for (i in dish.extendedIngredients){
       row = container.find("#summaryRow"+i);
       row.remove();
     }
@@ -81,14 +73,11 @@ var DishDetailView = function (container, model){
         loadDish();
         break;
       case "nrGuests":
-        //alert("lewat");
         dishTotalPrice.html(model.getTotalMenuPrice(dishId));
         dishGuestNumber.html("Ingredients for " + model.getNumberOfGuests() + " people");
         break;
       default:
 
     }
-    //alert("lewat bos, id nya segene neh " + model.getDefaultDishId());
-    //loadDish();
   }
 }
